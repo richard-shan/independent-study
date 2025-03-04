@@ -13,14 +13,14 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from sklearn.utils import shuffle
 
 # Load the new dataset
-file_path = '/synthetic.csv'
+file_path = 'C:/independentStudy/independent-study/testing/synthetic.csv'
 data = pd.read_csv(file_path)
 
 # Extract relevant columns
-queries = data['question'].tolist()
-ground_truths = data['answer'].tolist()
+queries = data['questions'].tolist()
+ground_truths = data['answers'].tolist()
 responses = data['responses'].tolist()
-labels = data['correct'].astype(int).tolist()
+labels = data['binary_correctness'].astype(int).tolist()
 
 # Combine query, ground truth, and response for input
 combined_inputs = [f"Query: {q} Ground Truth: {gt} Response: {r}" for q, gt, r in zip(queries, ground_truths, responses)]
